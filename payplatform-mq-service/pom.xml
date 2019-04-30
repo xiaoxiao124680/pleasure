@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.yufusoft.payplatform</groupId>
+        <artifactId>payplatform-project</artifactId>
+        <version>1.0.4</version>
+    </parent>
+
+    <groupId>com.yufusoft.payplatform</groupId>
+    <artifactId>payplatform-mq-service</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+
+    <name>customcenter-service</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yufusoft.payplatform</groupId>
+            <artifactId>payplatform-util</artifactId>
+            <version>${payplatform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-common</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-remoting</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-logging</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.0.42.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>deploy-release</id>
+            <name>User Project Release</name>
+            <url>${releases}</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>deploy-snapshot</id>
+            <name>User Project SNAPSHOTS</name>
+            <url>${snapshots}</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <profiles>
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <releases>http://www.yufunexus.com:9082/nexus/content/repositories/releases/</releases>
+                <snapshots>http://www.yufunexus.com:9082/nexus/content/repositories/snapshots/</snapshots>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <releases>http://www.yufunexus.com:9082/nexus/repository/releases/</releases>
+                <snapshots>http://www.yufunexus.com:9082/nexus/repository/snapshots/</snapshots>
+            </properties>
+        </profile>
+    </profiles>
+
+
+</project>

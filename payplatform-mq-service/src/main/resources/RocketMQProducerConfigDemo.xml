@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<instances>
+    <instance id="defaultStandardProducer" class="com.yufusoft.payplatform.ccenter.mq.rocketmq.RocketMQStandardProducer">
+        <attributes>
+            <attribute name="nameServerAddress" value="192.168.10.239:9876"/>
+            <attribute name="isAvailable" value="true"/>
+            <attribute name="producerGroup" value="defaultGroup"/>
+            <attribute name="instanceName" value="defaultStandardProducer"/>
+            <attribute name="createTopicKey" value="dfsd"/>
+            <attribute name="topicQueueNums" value="4"/>
+            <attribute name="sendMsgTimeout" value="3000"/>
+            <attribute name="compressMsgBodyOverHowmuch" value="4096"/>
+            <attribute name="retryTimesWhenSendFailed" value="2"/>
+            <attribute name="retryTimesWhenSendAsyncFailed" value="2"/>
+            <attribute name="retryAnotherBrokerWhenNotStoreOK" value="${mq.rocketmq.retryAnotherBrokerWhenNotStoreOK}"/>
+            <attribute name="maxMessageSize" value="4194304"/>
+        </attributes>
+    </instance>
+    <instance id="defaultTransactionProducer" class="com.yufusoft.payplatform.ccenter.mq.rocketmq.RocketMQTransactionProducer">
+        <attributes>
+            <attribute name="nameServerAddress" value="192.168.10.239:9876"/>
+            <attribute name="isAvailable" value="true"/>
+            <attribute name="producerGroup" value="defaultGroup"/>
+            <attribute name="instanceName" value="defaultTransactionProducer"/>
+            <attribute name="createTopicKey" value="dftr"/>
+            <!--<attribute name="transactionListener" value="com.yufusoft.payplatform.ccenter.mq.rocketmq.listener.DefaultTransactionListener"/>-->
+            <attribute name="topicQueueNums" value="4"/>
+            <attribute name="sendMsgTimeout" value="3000"/>
+            <attribute name="compressMsgBodyOverHowmuch" value="4096"/>
+            <attribute name="retryTimesWhenSendFailed" value="2"/>
+            <attribute name="retryTimesWhenSendAsyncFailed" value="2"/>
+            <attribute name="retryAnotherBrokerWhenNotStoreOK" value="${mq.rocketmq.retryAnotherBrokerWhenNotStoreOK}"/>
+            <attribute name="maxMessageSize" value="4194304"/>
+        </attributes>
+    </instance>
+</instances>

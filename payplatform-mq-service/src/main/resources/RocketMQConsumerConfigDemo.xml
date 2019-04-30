@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<instances>
+    <instance id="defaultBroadcastPushConsumer" class="com.yufusoft.payplatform.ccenter.mq.rocketmq.RocketMQPushConsumer">
+        <attributes>
+            <attribute name="isAvailable" value="false"/>
+            <attribute name="instanceName" value="defaultBroadcastPushConsumer"/>
+            <attribute name="nameServerAddress" value="192.168.10.239:9876"/>
+            <attribute name="consumerGroup" value="defaultGroup"/>
+            <attribute name="topic" value="TopicTest,TopicTest1"/>
+            <attribute name="targ" value="TagA,TagB||TagC"/>
+            <attribute name="messageModel" value="BROADCASTING"/>
+            <attribute name="messageListener" type="concurrently"/>
+            <!--
+                CONSUME_FROM_LAST_OFFSET,
+                CONSUME_FROM_LAST_OFFSET_AND_FROM_MIN_WHEN_BOOT_FIRST,
+                CONSUME_FROM_MIN_OFFSET,
+                CONSUME_FROM_MAX_OFFSET,
+                CONSUME_FROM_FIRST_OFFSET,
+                CONSUME_FROM_TIMESTAMP;
+             -->
+            <attribute name="consumeFromWhere" value="CONSUME_FROM_LAST_OFFSET"/>
+            <attribute name="consumeThreadMin" value="20"/>
+            <attribute name="consumeThreadMax" value="64"/>
+            <attribute name="adjustThreadPoolNumsThreshold" value="100000"/>
+            <attribute name="consumeConcurrentlyMaxSpan" value="2000"/>
+            <attribute name="pullThresholdForQueue" value="1000"/>
+            <attribute name="pullInterval" value="0"/>
+            <attribute name="consumeMessageBatchMaxSize" value="1"/>
+            <attribute name="pullBatchSize" value="32"/>
+            <attribute name="postSubscriptionWhenPull" value="false"/>
+            <attribute name="unitMode" value="false"/>
+        </attributes>
+    </instance>
+    <instance id="defaultClusterPushConsumer" class="com.yufusoft.payplatform.ccenter.mq.rocketmq.RocketMQPushConsumer">
+        <attributes>
+            <attribute name="isAvailable" value="true"/>
+            <attribute name="instanceName" value="defaultClusterPushConsumer"/>
+            <attribute name="nameServerAddress" value="192.168.10.239:9876"/>
+            <attribute name="consumerGroup" value="defaultGroup"/>
+            <attribute name="topic" value="TopicTest,TopicTest1"/>
+            <attribute name="targ" value="TagA,TagB"/>
+            <attribute name="messageModel" value="CLUSTERING"/>
+            <attribute name="messageListener" type="concurrently"/>
+            <!--
+                CONSUME_FROM_LAST_OFFSET,
+                CONSUME_FROM_LAST_OFFSET_AND_FROM_MIN_WHEN_BOOT_FIRST,
+                CONSUME_FROM_MIN_OFFSET,
+                CONSUME_FROM_MAX_OFFSET,
+                CONSUME_FROM_FIRST_OFFSET,
+                CONSUME_FROM_TIMESTAMP;
+             -->
+            <attribute name="consumeFromWhere" value="CONSUME_FROM_LAST_OFFSET"/>
+            <attribute name="consumeThreadMin" value="20"/>
+            <attribute name="consumeThreadMax" value="64"/>
+            <attribute name="adjustThreadPoolNumsThreshold" value="100000"/>
+            <attribute name="consumeConcurrentlyMaxSpan" value="2000"/>
+            <attribute name="pullThresholdForQueue" value="1000"/>
+            <attribute name="pullInterval" value="0"/>
+            <attribute name="consumeMessageBatchMaxSize" value="1"/>
+            <attribute name="pullBatchSize" value="32"/>
+            <attribute name="postSubscriptionWhenPull" value="false"/>
+            <attribute name="unitMode" value="false"/>
+        </attributes>
+    </instance>
+    <instance id="orderClusterPushConsumer" class="com.yufusoft.payplatform.ccenter.mq.rocketmq.RocketMQPushConsumer">
+        <attributes>
+            <attribute name="isAvailable" value="false"/>
+            <attribute name="instanceName" value="orderClusterPushConsumer"/>
+            <attribute name="nameServerAddress" value="192.168.10.239:9876"/>
+            <attribute name="consumerGroup" value="defaultGroup"/>
+            <attribute name="topic" value="TopicTest,TopicTest1"/>
+            <attribute name="targ" value="TagA,TagB"/>
+            <attribute name="messageModel" value="CLUSTERING"/>
+            <attribute name="messageListener" type="orderly"/>
+            <!--
+                CONSUME_FROM_LAST_OFFSET,
+                CONSUME_FROM_LAST_OFFSET_AND_FROM_MIN_WHEN_BOOT_FIRST,
+                CONSUME_FROM_MIN_OFFSET,
+                CONSUME_FROM_MAX_OFFSET,
+                CONSUME_FROM_FIRST_OFFSET,
+                CONSUME_FROM_TIMESTAMP;
+             -->
+            <attribute name="consumeFromWhere" value="CONSUME_FROM_LAST_OFFSET"/>
+            <attribute name="consumeThreadMin" value="20"/>
+            <attribute name="consumeThreadMax" value="64"/>
+            <attribute name="adjustThreadPoolNumsThreshold" value="100000"/>
+            <attribute name="consumeConcurrentlyMaxSpan" value="2000"/>
+            <attribute name="pullThresholdForQueue" value="1000"/>
+            <attribute name="pullInterval" value="0"/>
+            <attribute name="consumeMessageBatchMaxSize" value="1"/>
+            <attribute name="pullBatchSize" value="32"/>
+            <attribute name="postSubscriptionWhenPull" value="false"/>
+            <attribute name="unitMode" value="false"/>
+        </attributes>
+    </instance>
+</instances>
